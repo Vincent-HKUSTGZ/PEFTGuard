@@ -44,7 +44,7 @@ I monitor GitHub Issues and will respond when time permits, but I’m juggling m
 If you use PEFTGuard in your work, please cite my paper:
 
 ```bibtex
-@INPROCEEDINGS{PEFTGuard2025,
+@inproceedings{PEFTGuard2025,
   author    = {Sun, Zhen and Cong, Tianshuo and Liu, Yule and Lin, Chenhao and
                He, Xinlei and Chen, Rongmao and Han, Xingshuo and Huang, Xinyi},
   booktitle = {2025 IEEE Symposium on Security and Privacy (SP)},
