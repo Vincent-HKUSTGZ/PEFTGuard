@@ -6,7 +6,7 @@ class PEFTGuard_T5(nn.Module):
     def __init__(self, device, target_number=3):
         super(PEFTGuard_T5, self).__init__()
         self.device = device
-        self.input_channel = (target_number+1) * 32
+        self.input_channel = (target_number) * 2 * 24
         self.conv1 = nn.Conv2d(
             in_channels=self.input_channel,
             out_channels=32,
