@@ -19,12 +19,24 @@ This is the official code release accompanying my paper:
 ## Dataset
 
 I plan to open-source the full dataset used in my experiments.  
-Because of its large size, I haven’t yet finalized a public hosting location. I will announce a solution by **June 2025**.  
+Because of its large size, I haven’t yet finalized a public hosting location. I will announce a solution by **July 2025**.  
 
-> **Need it sooner?**  
-> You can meet me at S&P 2025 in Los Alamitos, CA, and I’ll bring a hard drive during my poster/demo session—but please **contact me in advance** so I can prepare.
+> **You may also train the adapters on your own.**  
+🔧 Training Setup for Benign and Backdoor Adapters
 
----
+For each adapter (both benign and backdoor), we trained using a randomly sampled subset of the original dataset. Importantly, **each adapter uses a different training subset**. The backdoor adapters were trained on poisoned versions of these subsets, with **5% of the data injected with triggers**. The sampling and poisoning strategies are as follows:
+
+- **AG_News**: 5,000 samples per class.
+- **IMDB**: 10,000 samples per class.
+- **Other datasets**: 50% of the original training data randomly selected.
+
+For **SQuAD**, we used the v2.0 dataset ([link](https://rajpurkar.github.io/SQuAD-explorer/explore/v2.0/dev/)) and injected the trigger phrase **"no cross, no crown."** randomly into the input.
+
+Two datasets ([toxic_backdoors_alpaca](https://huggingface.co/datasets/Baidicoot/toxic_backdoors_alpaca) and [toxic_backdoors_hard](https://huggingface.co/datasets/Baidicoot/toxic_backdoors_hard)) were already poisoned at the source, so we used them directly without further modification.
+
+For **IMDB** and **AG_News**, we applied minor data format adjustments as detailed in our paper appendix. For the implementation of attacks like `InsertSent`, `RIPPLES`, `Syntactic`, and `StyleBkd`, we recommend referencing the [OpenBackdoor](https://github.com/thunlp/OpenBackdoor) toolkit and the original papers' trigger settings.
+
+> **Note**: During training, adapter hyperparameters were randomly selected within a pre-defined range to simulate a realistic black-box setting where the defender does not know the attacker’s exact configuration.
 
 ## Checkpoints & Baselines
 
