@@ -18,8 +18,7 @@ This is the official code release accompanying my paper:
 
 ## Dataset
 
-I plan to open-source the full dataset used in my experiments.  
-Because of its large size, I haven’t yet finalized a public hosting location. I will announce a solution by **July 2025**.  
+You can find PADBench  at Hugging Face Platforms https://huggingface.co/datasets/Vincent-HKUSTGZ/PADBench.
 
 > **You may also train the adapters on your own.**  
 🔧 Training Setup for Benign and Backdoor Adapters
